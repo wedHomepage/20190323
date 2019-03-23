@@ -1,0 +1,108 @@
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<div class="bg">
+
+<h1 align="center"> Hebe & Robbie </h1>
+
+<ul>
+<a href="AMAGC1.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
+</ul>
+<ul>
+<a href="AMAGC2.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
+</ul>
+<ul>
+<a href="AMAGC3.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
+</ul>
+<ul>
+<a href="AMAGC4.html"> <img src="beats.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
+</ul>
+<ul>
+<a href="AMAGC5.html"> <img src="beats.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
+</ul>
+
+
+<!--
+<button class="generate-button">Generate Number</button>
+<button class="reset-button">reset Number</button>
+<ul class="random-numbers"></ul> -->
+</div>
+
+<script>
+  const button = document.querySelector('.generate-button');
+  const button2 = document.querySelector('.reset-button');
+  const numberContainer = document.querySelector('.random-numbers');
+  const MAX_LIMIT = 1;
+
+  const insertNumber = (number) => {
+  	const numberLi = `<ul>${number}</ul>`;
+  	if (numberContainer.childElementCount >= MAX_LIMIT) {
+    	numberContainer.innerHTML = numberLi;
+    } else {
+    	numberContainer.innerHTML = numberContainer.innerHTML + numberLi;
+    }
+  };
+
+  const randomGenerator = () => Math.floor(Math.random() * 100);
+  let intervalID = null;
+
+  button.addEventListener('mousedown', () =>
+  	intervalID = setInterval(() => {
+    	const randomNum = randomGenerator();
+    	insertNumber(randomNum);
+    }, 50)
+  );
+
+  document.addEventListener('mouseup', () => {
+  	if (intervalID !== null ) {
+    	clearInterval(intervalID);
+      intervalID = null;
+    }
+  });
+
+  document.addEventListener('dblclick', () => {
+    // clearInterval(intervalID);
+    // intervalID = null;
+    insertNumber(0);
+
+  });
+
+  document.addEventListener('dbrclick', () => {
+    // clearInterval(intervalID);
+    // intervalID = null;
+    insertNumber(30);
+
+  });
+
+</script>
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("wedding3.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  border-radius: 50%;
+}
+</style>
+<!-- <picture>
+  <source srcset="wedding3.png" media="(max-width: 1500px)">
+  <source srcset="wedding2.png" media="(max-width: 600)">
+  <img src="wedding2.jpg" style="max-width:100%;height:auto;">
+  <!-- <img src="wedding3.jpg" alt=">.< Picture Failed to Load" style="width:auto;"> -->
