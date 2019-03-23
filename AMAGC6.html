@@ -36,11 +36,16 @@
 
   const randomGenerator = () => Math.ceil(Math.random() * 80);
   let intervalID = null;
-
+  var c =0
   button.addEventListener('touchstart', () =>
   	intervalID = setInterval(() => {
     	const randomNum = randomGenerator();
     	insertNumber(randomNum);
+      c = c+1;
+      if (c>50){
+        clearInterval(intervalID);
+        intervalID = null;
+      }
     }, 26)
   );
 
