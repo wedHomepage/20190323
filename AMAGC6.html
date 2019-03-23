@@ -42,7 +42,7 @@
     	const randomNum = randomGenerator();
     	insertNumber(randomNum);
       c = c+1;
-      if (c<-250){
+      if (c < -250){
         clearInterval(intervalID);
         intervalID = null;
         c=0
@@ -119,6 +119,9 @@ body, html {
   font-size: 16px;
   margin: 4px 2px;
   border-radius: 50%;
+  width: 100px;
+  height:100px;
+  opacity: 0.01;
 }
 
 .random-numbers{

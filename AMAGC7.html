@@ -5,29 +5,18 @@
 
 <div class="bg">
 
-<h1 align="center"> Hebe & Robbie </h1>
+<p>
+<button class="generate-button">  </button>
+<button class="reset-button"> </button>
+</p>
+<!-- <button class="reset-button">reset Number</button> -->
 
-<ul>
-<a href="AMAGC6.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
-</ul>
-<ul>
-<a href="AMAGC7.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
-</ul>
-<!-- <ul>
-<a href="AMAGC3.html"> <img src="GC.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
-</ul>
-<ul>
-<a href="AMAGC4.html"> <img src="beats.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
-</ul>
-<ul>
-<a href="AMAGC5.html"> <img src="beats.jpg" alt=">.< Picture Failed to Load" height="80" width="100">  </a>
-</ul> -->
+<h1> <p> The lucky winner is: </p></h1>
 
+<p class="displayTag">
+<ul class="random-numbers"></ul>
+</p>
 
-<!--
-<button class="generate-button">Generate Number</button>
-<button class="reset-button">reset Number</button>
-<ul class="random-numbers"></ul> -->
 </div>
 
 <script>
@@ -37,7 +26,7 @@
   const MAX_LIMIT = 1;
 
   const insertNumber = (number) => {
-  	const numberLi = `<ul>${number}</ul>`;
+  	const numberLi = `<li>${number}</li>`;
   	if (numberContainer.childElementCount >= MAX_LIMIT) {
     	numberContainer.innerHTML = numberLi;
     } else {
@@ -45,17 +34,23 @@
     }
   };
 
-  const randomGenerator = () => Math.floor(Math.random() * 100);
+  const randomGenerator = () => Math.ceil(Math.random() * 80);
   let intervalID = null;
-
-  button.addEventListener('mousedown', () =>
+  var c =0
+  button.addEventListener('touchstart', () =>
   	intervalID = setInterval(() => {
     	const randomNum = randomGenerator();
     	insertNumber(randomNum);
-    }, 50)
+      c = c+1;
+      if (c<-250){
+        clearInterval(intervalID);
+        intervalID = null;
+        c=0
+      }
+    }, 26)
   );
 
-  document.addEventListener('mouseup', () => {
+  document.addEventListener('touchend', () => {
   	if (intervalID !== null ) {
     	clearInterval(intervalID);
       intervalID = null;
@@ -86,7 +81,7 @@ body, html {
 
 .bg {
   /* The image used */
-  background-image: url("wedding3.png");
+  background-image: url("wedding2.png");
 
   /* Full height */
   height: 100%;
@@ -97,12 +92,52 @@ body, html {
   background-size: cover;
 }
 
-img {
+.generate-button {
+  background-color: #FFB6C1;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  margin: 4px 2px;
   border-radius: 50%;
+  opacity: 0.6;
+  width: 100px;
+  height:100px;
 }
+
+.reset-button {
+  background-color: #FFB6C1;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
+  width: 100px;
+  height:100px;
+  opacity: 0.01;
+}
+
+.random-numbers{
+  font-size: 150px;
+  opacity: 0.5;
+
+}
+
+div {
+    margin: 10px;
+}
+
+p {
+
+  margin:10px;
+  opacity: 0.5;
+}
+
 </style>
-<!-- <picture>
-  <source srcset="wedding3.png" media="(max-width: 1500px)">
-  <source srcset="wedding2.png" media="(max-width: 600)">
-  <img src="wedding2.jpg" style="max-width:100%;height:auto;">
-  <!-- <img src="wedding3.jpg" alt=">.< Picture Failed to Load" style="width:auto;"> -->
