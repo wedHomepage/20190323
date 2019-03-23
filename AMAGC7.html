@@ -25,6 +25,10 @@
   const numberContainer = document.querySelector('.random-numbers');
   const MAX_LIMIT = 1;
 
+
+  var count = 0;
+
+
   const insertNumber = (number) => {
   	const numberLi = `<li>${number}</li>`;
   	if (numberContainer.childElementCount >= MAX_LIMIT) {
@@ -54,23 +58,22 @@
   	if (intervalID !== null ) {
     	clearInterval(intervalID);
       intervalID = null;
-      insertNumber(68)
+      if (count > 3) {
+        insertNumber(68)
+    }
     }
   });
 
   document.addEventListener('dblclick', () => {
     // clearInterval(intervalID);
     // intervalID = null;
+    count = count +1;
+    console.log(count);
     insertNumber(0);
 
   });
 
-  document.addEventListener('dbrclick', () => {
-    // clearInterval(intervalID);
-    // intervalID = null;
-    insertNumber(30);
 
-  });
 
 </script>
 
