@@ -44,7 +44,7 @@
     }, 26)
   );
 
-  document.addEventListener('touchleave', () => {
+  document.addEventListener('touchend', () => {
   	if (intervalID !== null ) {
     	clearInterval(intervalID);
       intervalID = null;
