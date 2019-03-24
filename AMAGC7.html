@@ -5,7 +5,7 @@
 
 <div class="bg">
 
-<h3><a href="index.html"> <button class="normal"> Home </button> </a> </h3>  
+<h3><a href="index.html"> <button class="normal"> Home </button> </a> </h3>
 <p>
 <button class="generate-button">  </button>
 <button class="reset-button"> </button>
@@ -26,10 +26,6 @@
   const numberContainer = document.querySelector('.random-numbers');
   const MAX_LIMIT = 1;
 
-
-  var count = 0;
-
-
   const insertNumber = (number) => {
   	const numberLi = `<li>${number}</li>`;
   	if (numberContainer.childElementCount >= MAX_LIMIT) {
@@ -47,7 +43,7 @@
     	const randomNum = randomGenerator();
     	insertNumber(randomNum);
       c = c+1;
-      if (c<-250){
+      if (c < -250){
         clearInterval(intervalID);
         intervalID = null;
         c=0
@@ -59,22 +55,22 @@
   	if (intervalID !== null ) {
     	clearInterval(intervalID);
       intervalID = null;
-      if (count == 2) {
-        insertNumber(35)
-    }
     }
   });
 
   document.addEventListener('dblclick', () => {
     // clearInterval(intervalID);
     // intervalID = null;
-    count = count +1;
-    console.log(count);
     insertNumber(0);
 
   });
 
+  document.addEventListener('dbrclick', () => {
+    // clearInterval(intervalID);
+    // intervalID = null;
+    insertNumber(0);
 
+  });
 
 </script>
 
